@@ -1,6 +1,6 @@
 # Varejonline
 
-[![Build Status](https://travis-ci.org/coyosoftware/varejonline.svg?branch=master)](https://travis-ci.org/coyosoftware/varejonline) [![Gem Version](https://badge.fury.io/rb/varejonline.svg)](http://badge.fury.io/rb/varejonline) [![Test Coverage](https://codeclimate.com/github/coyosoftware/varejonline/badges/coverage.svg)](https://codeclimate.com/github/coyosoftware/varejonline/coverage) [![Code Climate](https://codeclimate.com/github/coyosoftware/varejonline/badges/gpa.svg)](https://codeclimate.com/github/coyosoftware/varejonline)
+[![Build Status](https://travis-ci.org/coyosoftware/varejonline.svg?branch=master)](https://travis-ci.org/coyosoftware/varejonline) [![Gem Version](https://badge.fury.io/rb/varejonline.svg)](https://badge.fury.io/rb/varejonline) [![Test Coverage](https://codeclimate.com/github/coyosoftware/varejonline/badges/coverage.svg)](https://codeclimate.com/github/coyosoftware/varejonline/coverage) [![Code Climate](https://codeclimate.com/github/coyosoftware/varejonline/badges/gpa.svg)](https://codeclimate.com/github/coyosoftware/varejonline)
 
 This gem simplifies the usage of [Varejonline](http://varejonline.com.br/) API
 
