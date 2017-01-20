@@ -8,6 +8,7 @@ group :development, :test do
 end
 
 group :test do
+  gem "rake"
   gem 'rspec', '~> 3.5'
   gem 'webmock', '~> 2.0'
   gem 'simplecov'
