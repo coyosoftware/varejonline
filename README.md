@@ -30,19 +30,23 @@ Create a new instance of Varejonline class passing your access token:
 
 With the client instance, you can access the following resources:
 
+* Níveis de Categoria (client.category_levels) **Only listing**
 * Classes de Clientes (client.client_classes) **Listing and finding**
-* Configuração de crédito (client.installments) **Saving and information**
-* Contas a Receber (client.receipts) **Listing and finding**
-* Dados Login (client.user_data)
 * Empresas (client.companies) **Listing and finding**
-* Entidades (client.entities) **Listing and finding**
-* Histórico de Vendas (client.sales_history) **Finding and more details **
-* Lançamentos Padrões (client.default_entries) **Listing and finding**
 * Limite de Créditos (client.credit_limits) **Listing and block history**
-* Pedidos de venda (client.orders) **Listing and finding**
-* Provisões (client.provisions) **Only Creation**
+* Lançamentos Padrões (client.default_entries) **Listing and finding**
+* Entidades (client.entities) **Listing and finding**
+* Configuração de crédito (client.installments) **Saving and information**
+* Pedidos de venda (client.orders) **Listing, finding and creation**
+* Planos de pagamento (client.payment_conditions) **Only listing**
+* Categorias de produtos (client.product_categories) **Only listing**
+* Produtos (client.products) **Listing, finding, updating and creation**
+* Provisões (client.provisions) **Only creation**
+* Contas a Receber (client.receipts) **Listing and finding**
+* Histórico de Vendas (client.sales_history) **Finding and more details **
 * Representantes (client.sellers) **Listing and finding**
 * Terceiros (client.third_parties) **Listing, finding, creation, credit limit information, credit limit updating, blocking/unblocking credit**
+* Dados Login (client.user_data)
 
 ## Using the resources
 ### Listing
@@ -52,15 +56,17 @@ It can accept an Entity object that reflects the searchable API fields.
 
 Currently the following entities are implemented:
 
-* [Classes de Clientes](lib/varejonline/searcher/operational/client_class_searcher.rb)
-* [Contas a Receber](lib/varejonline/searcher/financial/receipt_searcher.rb)
 * [Empresas](lib/varejonline/searcher/administrative/company_searcher.rb)
 * [Entidades](lib/varejonline/searcher/administrative/entity_searcher.rb)
-* [Lançamentos Padrões](lib/varejonline/searcher/financial/default_entry_searcher.rb)
+* [Terceiros](lib/varejonline/searcher/administrative/third_party_searcher.rb)
 * [Limite de Crédito](lib/varejonline/searcher/commercial/credit_limit_searcher.rb)
+* [Produtos](lib/varejonline/searcher/commercial/product_searcher.rb)
+* [Lançamentos Padrões](lib/varejonline/searcher/financial/default_entry_searcher.rb)
+* [Planos de pagamento](lib/varejonline/searcher/financial/payment_condition_searcher.rb)
+* [Contas a Receber](lib/varejonline/searcher/financial/receipt_searcher.rb)
+* [Classes de Clientes](lib/varejonline/searcher/operational/client_class_searcher.rb)
 * [Pedidos de Venda](lib/varejonline/searcher/operational/order_searcher.rb)
 * [Representantes](lib/varejonline/searcher/operational/seller_searcher.rb)
-* [Terceiros](lib/varejonline/searcher/administrative/third_party_searcher.rb)
 
 ### Finding
 All resources implement a **find** method.
