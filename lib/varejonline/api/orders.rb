@@ -26,7 +26,7 @@ module Varejonline
       alias :create :save
 
       def cancel(id)
-        return parse_response(self.class.put("/#{id}/cancelar", body: build_body, headers: header))
+        return parse_response(self.class.post("/#{id}/cancelar", body: build_body, headers: header))
       end
     end
   end
