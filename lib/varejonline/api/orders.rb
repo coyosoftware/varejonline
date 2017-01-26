@@ -17,10 +17,13 @@ module Varejonline
         return parse_response(self.class.get("/#{id}", body: build_body, headers: header))
       end
 
-      def save(order)
-        raise ArgumentError unless order.nil? || order.is_a?(Varejonline::Entity::Commercial::Order)
-        return parse_response(self.class.post('/', body: build_body(order.as_parameter), headers: header))
+      def save(data)
+        return parse_response(self.class.post('/', body: build_body(data), headers: header))              if data.is_a?(Hash)
+        return parse_response(self.class.post('/', body: build_body(data.as_parameter), headers: header)) if data.is_a?(Varejonline::Entity::Commercial::Order)
+
+        raise ArgumentError
       end
+      alias :create :save
     end
   end
 end

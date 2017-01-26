@@ -18,11 +18,18 @@ module Varejonline
       end
 
       def save(data)
-        return parse_response(self.class.post('/', body: build_body(data.as_parameter), headers: header))
+        return parse_response(self.class.post('/', body: build_body(data), headers: header))              if data.is_a?(Hash)
+        return parse_response(self.class.post('/', body: build_body(data.as_parameter), headers: header)) if data.is_a?(Varejonline::Entity::Commercial::Product)
+
+        raise ArgumentError
       end
+      alias :create :save
       
       def update(id, data)
-        return parse_response(self.class.put("/#{id}", body: build_body(data.as_parameter), headers: header))
+        return parse_response(self.class.put("/#{id}", body: build_body(data), headers: header))              if data.is_a?(Hash)
+        return parse_response(self.class.put("/#{id}", body: build_body(data.as_parameter), headers: header)) if data.is_a?(Varejonline::Entity::Commercial::Product)
+
+        raise ArgumentError
       end
     end
   end

@@ -39,28 +39,68 @@ RSpec.describe Varejonline::API::Products do
       Varejonline.new('abc').products.find(5)
     end
   end
-  
+
   describe '.save' do
+    let(:product_params) { {'descricao' => '05-01-2015', 'token' => 'abc'} }
+    
     before do
+      @product = Varejonline::Entity::Commercial::Product.new
+      
       stub_request(:post, "#{Varejonline::API_ADDRESS}/produtos/").to_return(status: 201)
     end
+
+    describe 'with raw parameters' do
+      it 'posts to the products url' do
+        expect(described_class).to receive(:post).with('/', body: product_params.to_json, headers: header).and_call_original
+        
+        Varejonline.new('abc').products.save({'descricao' => '05-01-2015'})
+      end
+    end
     
-    it 'issues a post to the products url' do
-      expect(described_class).to receive(:post).with('/', body: product_param.merge!({ token: 'abc' }).to_json, headers: header).and_call_original
-      
-      Varejonline.new('abc').products.save(Varejonline::Entity::Commercial::Product.new)
+    describe 'with entity parameter' do
+      it 'posts to the products url' do
+        expect(described_class).to receive(:post).with('/', body: @product.as_parameter.merge!( token: 'abc' ).to_json, headers: header).and_call_original
+        
+        Varejonline.new('abc').products.save(@product)
+      end
+    end
+    
+    describe 'with invalid parameter' do
+      it 'raises ArgumentError when passing neither a Hash nor a Product' do
+        expect{Varejonline.new('abc').products.save(Array.new)}.to raise_error(ArgumentError)
+      end
     end
   end
   
   describe '.update' do
+    let(:product_params) { {'descricao' => '05-01-2015', 'token' => 'abc'} }
+
     before do
+      @product = Varejonline::Entity::Commercial::Product.new
+
       stub_request(:put, "#{Varejonline::API_ADDRESS}/produtos/1").to_return(status: 200)
     end
+
+    describe 'with raw parameters' do
+      it 'puts to the products url' do
+        expect(described_class).to receive(:put).with('/1', body: product_params.to_json, headers: header).and_call_original
+        
+        Varejonline.new('abc').products.update(1, {'descricao' => '05-01-2015'})
+      end
+    end
     
-    it 'issues a put to the installments url' do
-      expect(described_class).to receive(:put).with('/1', body: product_param.merge!({ token: 'abc' }).to_json, headers: header).and_call_original
-      
-      Varejonline.new('abc').products.update(1, Varejonline::Entity::Commercial::Product.new)
+    describe 'with entity parameter' do
+      it 'puts to the products url' do
+        expect(described_class).to receive(:put).with('/1', body: @product.as_parameter.merge!( token: 'abc' ).to_json, headers: header).and_call_original
+        
+        Varejonline.new('abc').products.update(1, @product)
+      end
+    end
+    
+    describe 'with invalid parameter' do
+      it 'raises ArgumentError when passing neither a Hash nor a Product' do
+        expect{Varejonline.new('abc').products.update(1, Array.new)}.to raise_error(ArgumentError)
+      end
     end
   end
 end

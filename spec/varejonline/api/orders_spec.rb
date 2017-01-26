@@ -41,16 +41,34 @@ RSpec.describe Varejonline::API::Orders do
   end
 
   describe '.save' do
+    let(:order_params) { {'data' => '05-01-2015', 'horario' => '14:22:20', 'token' => 'abc'} }
+    
     before do
+      @order = Varejonline::Entity::Commercial::Order.new
+      
       stub_request(:post, "#{Varejonline::API_ADDRESS}/pedidos/").to_return(status: 201)
     end
 
-    it 'issues a post to the orders url' do
-      order = Varejonline::Entity::Commercial::Order.new
-
-      expect(described_class).to receive(:post).with('/', body: order.as_parameter.merge!({ token: 'abc' }).to_json, headers: header).and_call_original
-
-      Varejonline.new('abc').orders.save(order)
+    describe 'with raw parameters' do
+      it 'posts to the orders url' do
+        expect(described_class).to receive(:post).with('/', body: order_params.to_json, headers: header).and_call_original
+        
+        Varejonline.new('abc').orders.save({'data' => '05-01-2015', 'horario' => '14:22:20' })
+      end
+    end
+    
+    describe 'with entity parameter' do
+      it 'posts to the orders url' do
+        expect(described_class).to receive(:post).with('/', body: @order.as_parameter.merge!( token: 'abc' ).to_json, headers: header).and_call_original
+        
+        Varejonline.new('abc').orders.save(@order)
+      end
+    end
+    
+    describe 'with invalid parameter' do
+      it 'raises ArgumentError when passing neither a Hash nor a Order' do
+        expect{Varejonline.new('abc').orders.save(Array.new)}.to raise_error(ArgumentError)
+      end
     end
   end
 end
