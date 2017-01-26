@@ -71,4 +71,16 @@ RSpec.describe Varejonline::API::Orders do
       end
     end
   end
+
+  describe '.cancel' do
+    before do
+      stub_request(:put, "#{Varejonline::API_ADDRESS}/pedidos/5/cancelar").to_return(status: 200)
+    end
+    
+    it 'issues a put to the order cancel url' do
+      expect(described_class).to receive(:put).with('/5/cancelar', body: { token: 'abc' }.to_json, headers: header).and_call_original
+      
+      Varejonline.new('abc').orders.cancel(5)
+    end
+  end
 end

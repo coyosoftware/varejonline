@@ -24,6 +24,10 @@ module Varejonline
         raise ArgumentError
       end
       alias :create :save
+
+      def cancel(id)
+        return parse_response(self.class.put("/#{id}/cancelar", body: build_body, headers: header))
+      end
     end
   end
 end

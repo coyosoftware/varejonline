@@ -37,7 +37,7 @@ With the client instance, you can access the following resources:
 * Lançamentos Padrões (client.default_entries) **Listing and finding**
 * Entidades (client.entities) **Listing and finding**
 * Configuração de crédito (client.installments) **Saving and information**
-* Pedidos de venda (client.orders) **Listing, finding and creation**
+* Pedidos de venda (client.orders) **Listing, finding, creation and cancellation**
 * Planos de pagamento (client.payment_conditions) **Only listing**
 * Categorias de produtos (client.product_categories) **Only listing**
 * Produtos (client.products) **Listing, finding, updating and creation**
