@@ -29,6 +29,14 @@ RSpec.describe Varejonline::Client do
     expect(Varejonline.new('abc').credit_limits.class).to eq(Varejonline::API::CreditLimits)
   end
 
+  it 'returns a new Varejonline::API::Receivables' do
+    expect(Varejonline.new('abc').receivables.class).to eq(Varejonline::API::Receivables)
+  end
+
+  it 'returns a new Varejonline::API::Payables' do
+    expect(Varejonline.new('abc').payables.class).to eq(Varejonline::API::Payables)
+  end
+
   it 'returns a new Varejonline::API::ClientClasses' do
     expect(Varejonline.new('abc').client_classes.class).to eq(Varejonline::API::ClientClasses)
   end
@@ -51,6 +59,10 @@ RSpec.describe Varejonline::Client do
 
   it 'returns a new Varejonline::API::Products' do
     expect(Varejonline.new('abc').products.class).to eq(Varejonline::API::Products)
+  end
+
+  it 'returns a new Varejonline::API::CategoryLevels' do
+    expect(Varejonline.new('abc').category_levels.class).to eq(Varejonline::API::CategoryLevels)
   end
 
   it 'returns a new Varejonline::API::ProductCategories' do

@@ -65,6 +65,7 @@ Currently the following entities are implemented:
 * [Lançamentos Padrões](lib/varejonline/searcher/financial/default_entry_searcher.rb)
 * [Planos de pagamento](lib/varejonline/searcher/financial/payment_condition_searcher.rb)
 * [Contas a Receber](lib/varejonline/searcher/financial/receivable_searcher.rb)
+* [Contas a Pagar](lib/varejonline/searcher/financial/payable_searcher.rb)
 * [Classes de Clientes](lib/varejonline/searcher/operational/client_class_searcher.rb)
 * [Pedidos de Venda](lib/varejonline/searcher/operational/order_searcher.rb)
 * [Representantes](lib/varejonline/searcher/operational/seller_searcher.rb)

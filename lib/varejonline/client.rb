@@ -11,7 +11,7 @@ module Varejonline
     parser Proc.new {|b| JSON.parse(b) rescue b}
     
     require_all 'varejonline/api', 'third_parties', 'entities', 'default_entries', 'provisions', 'user_data', 'installments', 'credit_limits', 
-      'client_classes', 'receivables', 'sales_history', 'orders', 'companies', 'sellers', 'products', 'category_levels', 'product_categories',
+      'client_classes', 'receivables', 'payables', 'sales_history', 'orders', 'companies', 'sellers', 'products', 'category_levels', 'product_categories',
       'payment_conditions'
     
     attr_accessor :access_token
@@ -51,6 +51,10 @@ module Varejonline
     
     def receivables
       Varejonline::API::Receivables.new(@access_token)
+    end
+
+    def payables
+      Varejonline::API::Payables.new(@access_token)
     end
 
     def client_classes
