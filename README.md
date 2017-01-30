@@ -42,15 +42,16 @@ With the client instance, you can access the following resources:
 * Categorias de produtos (client.product_categories) **Only listing**
 * Produtos (client.products) **Listing, finding, updating and creation**
 * Provisões (client.provisions) **Only creation**
-* Contas a Receber (client.receipts) **Listing and finding**
-* Histórico de Vendas (client.sales_history) **Finding and more details **
+* Contas a Receber (client.receivables) **Listing and finding**
+* Contas a Pagar (client.payables) **Listing and finding**
+* Histórico de Vendas (client.sales_history) **Finding and more details**
 * Representantes (client.sellers) **Listing and finding**
 * Terceiros (client.third_parties) **Listing, finding, creation, credit limit information, credit limit updating, blocking/unblocking credit**
 * Dados Login (client.user_data)
 
 ## Using the resources
 ### Listing
-All resources implement a **list** method.
+Some resources implement a **list** method.
 
 It can accept an Entity object that reflects the searchable API fields.
 
@@ -63,13 +64,13 @@ Currently the following entities are implemented:
 * [Produtos](lib/varejonline/searcher/commercial/product_searcher.rb)
 * [Lançamentos Padrões](lib/varejonline/searcher/financial/default_entry_searcher.rb)
 * [Planos de pagamento](lib/varejonline/searcher/financial/payment_condition_searcher.rb)
-* [Contas a Receber](lib/varejonline/searcher/financial/receipt_searcher.rb)
+* [Contas a Receber](lib/varejonline/searcher/financial/receivable_searcher.rb)
 * [Classes de Clientes](lib/varejonline/searcher/operational/client_class_searcher.rb)
 * [Pedidos de Venda](lib/varejonline/searcher/operational/order_searcher.rb)
 * [Representantes](lib/varejonline/searcher/operational/seller_searcher.rb)
 
 ### Finding
-All resources implement a **find** method.
+Some resources implement a **find** method.
 
 It finds the resource with the passed ID.
 
