@@ -72,4 +72,12 @@ RSpec.describe Varejonline::Client do
   it 'returns a new Varejonline::API::PaymentConditions' do
     expect(Varejonline.new('abc').payment_conditions.class).to eq(Varejonline::API::PaymentConditions)
   end
+
+  it 'returns a new Varejonline::API::Payments' do
+    expect(Varejonline.new('abc').payments.class).to eq(Varejonline::API::Payments)
+  end
+
+  it 'returns a new Varejonline::API::CardNegotiations' do
+    expect(Varejonline.new('abc').card_negotiations.class).to eq(Varejonline::API::CardNegotiations)
+  end
 end

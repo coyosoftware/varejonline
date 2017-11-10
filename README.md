@@ -47,6 +47,8 @@ With the client instance, you can access the following resources:
 * Histórico de Vendas (client.sales_history) **Finding and more details**
 * Representantes (client.sellers) **Listing and finding**
 * Terceiros (client.third_parties) **Listing, finding, creation, credit limit information, credit limit updating, blocking/unblocking credit**
+* Baixas (client.payments) **Only creation**
+* Negociações de Cartão (client.card_negotiations) **Only listing**
 * Dados Login (client.user_data)
 
 ## Using the resources
@@ -69,6 +71,7 @@ Currently the following entities are implemented:
 * [Classes de Clientes](lib/varejonline/searcher/operational/client_class_searcher.rb)
 * [Pedidos de Venda](lib/varejonline/searcher/operational/order_searcher.rb)
 * [Representantes](lib/varejonline/searcher/operational/seller_searcher.rb)
+* [Negociações de Cartão](lib/varejonline/searcher/financial/card_negotiation_searcher.rb)
 
 ### Finding
 Some resources implement a **find** method.
