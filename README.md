@@ -47,7 +47,7 @@ With the client instance, you can access the following resources:
 * Histórico de Vendas (client.sales_history) **Finding and more details**
 * Representantes (client.sellers) **Listing and finding**
 * Terceiros (client.third_parties) **Listing, finding, creation, credit limit information, credit limit updating, blocking/unblocking credit**
-* Baixas (client.payments) **Only creation**
+* Baixas (client.payments) **Listing, finding, creation**
 * Negociações de Cartão (client.card_negotiations) **Only listing**
 * Dados Login (client.user_data)
 
