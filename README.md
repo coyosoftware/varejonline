@@ -50,6 +50,7 @@ With the client instance, you can access the following resources:
 * Baixas (client.payments) **Only creation**
 * Negociações de Cartão (client.card_negotiations) **Only listing**
 * Dados Login (client.user_data)
+* Unidades (client.units) **Listing and finding**
 
 ## Using the resources
 ### Listing
