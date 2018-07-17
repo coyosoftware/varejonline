@@ -51,6 +51,7 @@ With the client instance, you can access the following resources:
 * Negociações de Cartão (client.card_negotiations) **Only listing**
 * Dados Login (client.user_data)
 * Unidades (client.units) **Listing and finding**
+* Saldo de mercadorias(client.product_balances) **Listing**
 
 ## Using the resources
 ### Listing
@@ -73,6 +74,7 @@ Currently the following entities are implemented:
 * [Pedidos de Venda](lib/varejonline/searcher/operational/order_searcher.rb)
 * [Representantes](lib/varejonline/searcher/operational/seller_searcher.rb)
 * [Negociações de Cartão](lib/varejonline/searcher/financial/card_negotiation_searcher.rb)
+* [Saldos de mercadorias](lib/varejonline/searcher/operational/product_balance_searcher.rb)
 
 ### Finding
 Some resources implement a **find** method.

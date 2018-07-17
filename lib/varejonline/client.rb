@@ -12,7 +12,7 @@ module Varejonline
     
     require_all 'varejonline/api', 'third_parties', 'entities', 'default_entries', 'provisions', 'user_data', 'installments', 'credit_limits', 
       'client_classes', 'receivables', 'payables', 'sales_history', 'orders', 'companies', 'sellers', 'products', 'category_levels', 'product_categories',
-      'payment_conditions', 'payments', 'card_negotiations', 'units'
+      'payment_conditions', 'payments', 'card_negotiations', 'units', 'product_balances'
     
     attr_accessor :access_token
     
@@ -103,6 +103,9 @@ module Varejonline
 
     def units
       Varejonline::API::Units.new(@access_token)
+    end
+    def product_balances
+      Varejonline::API::ProductBalances.new(@access_token)
     end
     
     protected
